@@ -12,10 +12,7 @@ def Enter_Marks():
     return marks
 
 def Sum_Total(marks):
-    total = 0
-    for i in range(0,len(marks)):
-        total += marks[i]
-    return total
+    return sum([mark for mark in marks])
 
 def Average(marks):
     return Sum_Total(marks)/len(marks)
