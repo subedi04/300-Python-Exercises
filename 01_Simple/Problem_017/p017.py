@@ -11,7 +11,6 @@ P
 
 '''
 # display char with tab
-'''
 print("A")
 print("B\tC")
 print("D\tE\tF")
@@ -19,8 +18,8 @@ print("G\tH\tI\tJ")
 print("K\tL\tM")
 print("N\tO")
 print("P")
-'''
 
+'''
 def Triangle_ABC(v):
     flag = 1
     for i in range(0,len(v)):
@@ -35,5 +34,5 @@ if __name__=="__main__":
     #v = ["A","B","C","D","E","F","G","H","I","K","L","M","N","O","P"]
     v = ["A","B","C","D","E","F","G","H","I","J"]
     Triangle_ABC(v)
-
+'''
 
