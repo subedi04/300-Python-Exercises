@@ -1,3 +1,7 @@
+'''
+Write A Python Program To Find Area Of Triangle
+Formula: (base x height)/2
+'''
 # to get base and height from the user
 # find area of the triangle 
 
