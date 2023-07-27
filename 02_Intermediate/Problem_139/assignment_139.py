@@ -16,7 +16,7 @@ def create_ones_array():
         except ValueError:
             print("Invalid input! Please enter integer values for rows and columns.")
 
-    ones_array = np.ones((rows, cols), dtype=np.int)
+    ones_array = np.ones((rows, cols), dtype=np.int64)
     return ones_array
 
 def main():
