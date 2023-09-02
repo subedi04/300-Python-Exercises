@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown Timer</title>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <form id="timer-form">
+        <label for="start_time">Start Time (Unix Timestamp):</label>
+        <input type="text" id="start_time" name="start_time">
+        <br>
+        <label for="end_time">End Time (Unix Timestamp):</label>
+        <input type="text" id="end_time" name="end_time">
+        <br>
+        <button type="button" id="start_button">Start Timer</button>
+    </form>
+    <div id="timer"></div>
+    <script>
+        document.getElementById('start_button').addEventListener('click', function () {
+            const startTime = document.getElementById('start_time').value;
+            const endTime = document.getElementById('end_time').value;
+            fetch('/start_timer', {
+                method: 'POST',
+                body: new URLSearchParams({ 'start_time': startTime, 'end_time': endTime }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const timer = document.getElementById('timer');
+                const remainingTime = data.remaining_time;
+                if (remainingTime >= 0) {
+                    timer.innerText = `Remaining Time: ${remainingTime} seconds`;
+                    setInterval(function () {
+                        remainingTime--;
+                        timer.innerText = `Remaining Time: ${remainingTime} seconds`;
+                        if (remainingTime < 0) {
+                            timer.innerText = 'Time is up!';
+                        }
+                    }, 1000);
+                } else {
+                    timer.innerText = 'Invalid time range';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
