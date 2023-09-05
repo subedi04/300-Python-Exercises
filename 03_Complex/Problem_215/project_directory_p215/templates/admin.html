@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <h2>Admin Area</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user['username'] }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
