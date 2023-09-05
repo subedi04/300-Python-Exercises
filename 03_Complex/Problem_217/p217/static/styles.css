@@ -1,0 +1,27 @@
+/* Add your aquatic-themed styles here */
+body {
+    background-color: #007BFF; /* Blue background */
+    color: #FFFFFF; /* White text */
+}
+
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
