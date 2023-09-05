@@ -1,0 +1,47 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Futuristic Web App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>List to Pandas</h1>
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <button id="addButton">Add Number</button>
+        <div id="numberList"></div>
+        <div id="pandasDataFrame"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var numbers = [];
+        
+        $(document).ready(function() {
+            $("#addButton").click(function() {
+                var number = $("#numberInput").val();
+                numbers.push(parseFloat(number));
+                $("#numberList").text("Numbers: " + numbers.join(", "));
+                $("#numberInput").val("");
+                
+                // Convert to Pandas DataFrame
+                var pandasData = {
+                    'Alpha Index': numbers
+                };
+                
+                $.ajax({
+                    url: "/pandas",
+                    type: "POST",
+                    data: JSON.stringify(pandasData),
+                    contentType: "application/json",
+                    success: function(data) {
+                        $("#pandasDataFrame").html(data);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
