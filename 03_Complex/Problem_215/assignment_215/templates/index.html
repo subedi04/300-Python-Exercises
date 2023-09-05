@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Integer to Complex Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Integer to Complex Converter</h1>
+        <form method="POST">
+            <label for="integer_input">Enter an integer:</label>
+            <input type="number" id="integer_input" name="integer_input" required>
+            <button type="submit">Convert</button>
+        </form>
+        {% if error_message %}
+            <p class="error">{{ error_message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
