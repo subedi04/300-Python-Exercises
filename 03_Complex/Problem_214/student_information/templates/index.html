@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information App</title>
+</head>
+<body>
+    <h1>Student Information</h1>
+    
+    <form method="POST" action="/add_student">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+        
+        <label for="roll_number">Roll Number:</label>
+        <input type="text" name="roll_number" required>
+        
+        <button type="submit">Add Student</button>
+    </form>
+    
+    <h2>Students:</h2>
+    <ul>
+        {% for student in students %}
+            <li>{{ student.name }} ({{ student.roll_number }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
