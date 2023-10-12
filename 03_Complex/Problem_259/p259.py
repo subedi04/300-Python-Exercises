@@ -1,3 +1,7 @@
+'''
+Write a Python Program to get file creation date or time.
+'''
+
 import os.path
 import time
 
