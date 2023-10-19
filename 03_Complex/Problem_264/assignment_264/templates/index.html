@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set Operations</title>
+</head>
+<body>
+    <h1>Set Operations</h1>
+    <form method="POST">
+        Set A: <input type="text" name="set_a" required><br><br>
+        Set B: <input type="text" name="set_b" required><br><br>
+        Operation:
+        <select name="operation">
+            <option value="difference">Difference</option>
+            <option value="symmetric_difference">Symmetric Difference</option>
+        </select><br><br>
+        <input type="submit" value="Calculate">
+    </form>
+
+    {% if result %}
+    <h2>Result:</h2>
+    {{ result }}
+    {% endif %}
+</body>
+</html>
