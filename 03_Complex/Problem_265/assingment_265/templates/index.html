@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admission Checker</title>
+</head>
+<body>
+    <h1>Admission Checker</h1>
+    <form method="POST">
+        Age: <input type="number" name="age" required><br><br>
+        Marks: <input type="number" name="marks" step="0.01" required><br><br>
+        <input type="submit" value="Check Admission Eligibility">
+    </form>
+
+    {% if result %}
+    <h2>Result:</h2>
+    {{ result }}
+    {% endif %}
+</body>
+</html>
