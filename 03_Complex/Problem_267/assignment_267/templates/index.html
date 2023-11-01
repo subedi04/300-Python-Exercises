@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encryption/Decryption</title>
+</head>
+<body>
+    <h2>Enter a Name to Encrypt</h2>
+    <form action="/encrypt" method="post">
+        <input type="text" name="name" placeholder="Enter a name">
+        <input type="submit" value="Encrypt">
+    </form>
+
+    <h2>Decrypt a Name</h2>
+    <form action="/decrypt" method="post">
+        <input type="text" name="encrypted_name" placeholder="Enter the encrypted name">
+        <input type="submit" value="Decrypt">
+    </form>
+</body>
+</html>
