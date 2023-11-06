@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Records</title>
+</head>
+<body>
+    <h1>Records</h1>
+    <ul id="recordList">
+        <!-- Records will be loaded here -->
+    </ul>
+
+    <script>
+        async function deleteRecord(recordId) {
+            const response = await fetch('/delete', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `record_id=${recordId}`
+            });
+
+            const result = await response.json();
+            if (result.message === 'Record deleted successfully') {
+                fetchRecords(); // Refresh the record list after deletion
+            }
+        }
+
+        async function fetchRecords() {
+            const response = await fetch('/');
+            const records = await response.json();
+
+            const recordList = document.getElementById('recordList');
+            recordList.innerHTML = '';
+
+            records.forEach(record => {
+                const li = document.createElement('li');
+                li.textContent = record.name;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.addEventListener('click', () => deleteRecord(record.id));
+
+                li.appendChild(deleteButton);
+                recordList.appendChild(li);
+            });
+        }
+
+        fetchRecords(); // Fetch records initially
+    </script>
+</body>
+</html>
