@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+</head>
+<body>
+    <h1>Grade Calculator</h1>
+    <p>>=95 Show A+ Grade<br>
+        >=80 Show A Grade<br>
+        >=70 Show B Grade<br>
+        >=60 Show C Grade<br>
+        Lower Than 60, Will Be Fail Consider</p>
+    <form method="post">
+        <label for="marks">Enter student's marks:</label>
+        <input type="text" id="marks" name="marks" required>
+        <button type="submit">Calculate Grade</button>
+    </form>
+
+    {% if grade %}
+        <p>Grade: {{ grade }}</p>
+    {% endif %}
+</body>
+</html>
