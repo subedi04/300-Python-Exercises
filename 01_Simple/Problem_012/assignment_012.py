@@ -13,5 +13,5 @@ def pattern(n):
         print(" "*spaces + "*"*i)
 
 if __name__=="__main__":
-    n = int(input("Enter a input : "))
-    pattern(n)
+    n = int( 10)
+    pattern(n) 
